@@ -4,7 +4,7 @@ RUN pip3 install psutil
 RUN pip3 install pyTest
 
 
-COPY ./*.py ./home
+COPY . ./home
 
 WORKDIR /home
 
