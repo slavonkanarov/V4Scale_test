@@ -13,7 +13,7 @@ def test_main():
     memsens = SensorMemory.SensorMemory()
     cpusens = CPUSensor.CPUSensor()
     disksens = DiskSensor.DiskSensor()
-    data = {**memsens.getData(), **cpusens.getData(), **disksens.getData()}
+    data = {**memsens.get_data(), **cpusens.get_data(), **disksens.get_data()}
     excpect = {'memory': 62.5, 'cpu': 10.25, 'disk': 23.2}
     assert data.keys() == excpect.keys()
     assert 0 <= data["memory"] <= 100
@@ -27,7 +27,7 @@ def test_main():
     con.close()
 
     bd = BD.BD(test_BD.path)
-    bd.addValue(data)
+    bd.add_value(data)
     del bd
 
     con = sqlite3.connect(test_BD.path)

@@ -35,7 +35,7 @@ def test_add_value():
     con.close()
 
     bd = BD.BD(path)
-    bd.addValue({'memory': 62.5, 'cpu': 10.25, 'disk': 23.2})
+    bd.add_value({'memory': 62.5, 'cpu': 10.25, 'disk': 23.2})
     del bd
 
     con = sqlite3.connect(path)
@@ -60,7 +60,7 @@ def test_add_value_wrong_value_1():
 
     bd = BD.BD(path)
     with pytest.raises(ValueError):
-        bd.addValue({'memry': 62.5, 'cpu': 10.25, 'disk': 23.2})
+        bd.add_value({'memry': 62.5, 'cpu': 10.25, 'disk': 23.2})
     del bd
 
     con = sqlite3.connect(path)
@@ -82,7 +82,7 @@ def test_add_value_wrong_value_2():
 
     bd = BD.BD(path)
     with pytest.raises(ValueError):
-        bd.addValue({'cpu': 10.25, 'disk': 23.2})
+        bd.add_value({'cpu': 10.25, 'disk': 23.2})
     del bd
 
     con = sqlite3.connect(path)
@@ -104,7 +104,7 @@ def test_add_value_wrong_value_3():
 
     bd = BD.BD(path)
     with pytest.raises(ValueError):
-        bd.addValue({'memory': 62.5, 'cpu|disk': 10.25, 'disk': 23.2})
+        bd.add_value({'memory': 62.5, 'cpu|disk': 10.25, 'disk': 23.2})
     del bd
 
     con = sqlite3.connect(path)
@@ -126,7 +126,7 @@ def test_add_value_wrong_value_4():
 
     bd = BD.BD(path)
     with pytest.raises(ValueError):
-        bd.addValue({'memory': 62.5, 'cpu': 10.25, 'cpu': 23.2})
+        bd.add_value({'memory': 62.5, 'cpu': 10.25, 'cpu': 23.2})
     del bd
 
     con = sqlite3.connect(path)

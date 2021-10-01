@@ -4,7 +4,7 @@ import pytest
 
 def test_data():
     sens = SensorMemory.SensorMemory()
-    data = sens.loadData()
+    data = sens.load_data()
     assert 0 <= data[2] <= 100
 
 
@@ -39,7 +39,7 @@ def test_parser_wrong_value_3():
 
 def test_get_data():
     sens = SensorMemory.SensorMemory()
-    data = sens.getData()
+    data = sens.get_data()
     expect = {"memory": 93.1}
     assert data.keys() == expect.keys()
     assert 0 <= data["memory"] <= 100

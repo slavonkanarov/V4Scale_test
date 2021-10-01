@@ -1,6 +1,7 @@
 import sqlite3
 import copy
 
+
 class BD:
     def __init__(self, path):
         self.con = sqlite3.connect(path)
@@ -9,7 +10,7 @@ class BD:
                (memory real, cpu real, disk real)''')
         self.con.commit()
 
-    def addValue(self, value:dict):
+    def add_value(self, value: dict):
         cur = self.con.cursor()
         keys = ["memory", 'cpu', 'disk']
         if len([0 for key in keys if key not in value.keys()]) != 0:
@@ -20,4 +21,3 @@ class BD:
 
     def __del__(self):
         self.con.close()
-

@@ -4,7 +4,7 @@ import pytest
 
 def test_data():
     sens = DiskSensor.DiskSensor()
-    data = sens.loadData()
+    data = sens.load_data()
     assert 0 <= data[3] <= 100
 
 
@@ -39,7 +39,7 @@ def test_parser_wrong_value_3():
 
 def test_get_data():
     sens = DiskSensor.DiskSensor()
-    data = sens.getData()
+    data = sens.get_data()
     expect = {"disk": 93.1}
     assert data.keys() == expect.keys()
     assert 0 <= data["disk"] <= 100
